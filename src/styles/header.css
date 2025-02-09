@@ -1,0 +1,98 @@
+/* Global reset and basic styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: slideIn 1s ease-out;
+}
+
+/* Logo Styling */
+.logo-container .brand-name {
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  animation: fadeInLogo 1s ease-out;
+}
+
+.logo-container .hostel {
+  color: #ff6f61;
+  margin-right: 5px;
+}
+
+.logo-container .hunt {
+  color: #ffcc00;
+}
+
+/* Navigation Menu */
+.nav-links ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links .nav-item {
+  font-size: 1.2rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links .nav-item:hover {
+  color: #ff6f61;
+  transform: translateY(-3px);
+}
+
+/* Auth Button Styling */
+.auth-button .login-button {
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #ff6f61;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.auth-button .login-button:hover {
+  background-color: #ff3e2d;
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
