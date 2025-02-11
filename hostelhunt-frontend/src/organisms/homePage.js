@@ -30,7 +30,7 @@ export const HomePage = () => {
       key: "rzp_test_KfkSVTMrjRudas",
       key_secret: "WkTAxsYbM61XV2zLioGlRphd",
       currency: "INR",
-      amount: item.rent,
+      amount: (item.rent)*100,
       name: item.name,
       description: item.owner,
       handler: function (response) {
@@ -69,6 +69,9 @@ export const HomePage = () => {
           />
         ))}
       </div>
+     
     </div>
+    
+    
   );
 };

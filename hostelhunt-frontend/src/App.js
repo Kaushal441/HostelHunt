@@ -6,7 +6,9 @@ import { AboutUsPage } from "./organisms/aboutUsPage";
 import { ContactPage } from "./organisms/contactPage";
 import RegisterPage from "./organisms/registerPage";
 import ResetPage from "./organisms/resetPage";
-import AdminHomePage from "./organisms/adminHomePage";
+import { AdminHomePage } from "./organisms/adminHomePage";
+import { HostelOwnerHomePage } from "./organisms/hostelOwnerHome";
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/" element={<AuthPage />} />
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/adminhome" element={<AdminHomePage />} />
+        <Route path="/hostelOwnerHome" element={<HostelOwnerHomePage />} />
         <Route path="/reset" element={<ResetPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<AboutUsPage />} />

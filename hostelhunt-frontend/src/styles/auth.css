@@ -10,6 +10,13 @@
   padding: 20px;
   background-image: url("../Images/hostel.jpeg");
 }
+.hostel {
+  color: rgb(183, 115, 115);
+}
+
+.hunt {
+  color: rgb(127, 127, 80);
+}
 
 h1 {
   font-size: 3rem;

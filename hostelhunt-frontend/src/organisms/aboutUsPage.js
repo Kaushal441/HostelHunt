@@ -90,29 +90,29 @@ export const AboutUsPage = () => {
           <div style={teamMemberStyles} className="team-member">
             <img
               src="https://via.placeholder.com/120"
-              alt="John Doe"
+              alt="Umesh Patil"
               style={teamMemberImageStyles}
             />
-            <h3 style={teamMemberNameStyles}>John Doe</h3>
-            <p style={teamMemberRoleStyles}>CEO & Founder</p>
+            <h3 style={teamMemberNameStyles}>Umesh Patil</h3>
+            <p style={teamMemberRoleStyles}>Student</p>
           </div>
           <div style={teamMemberStyles} className="team-member">
             <img
               src="https://via.placeholder.com/120"
-              alt="Jane Smith"
+              alt="Kaushal Sharma"
               style={teamMemberImageStyles}
             />
-            <h3 style={teamMemberNameStyles}>Jane Smith</h3>
-            <p style={teamMemberRoleStyles}>Product Manager</p>
+            <h3 style={teamMemberNameStyles}>Kaushal Sharma</h3>
+            <p style={teamMemberRoleStyles}>Student</p>
           </div>
           <div style={teamMemberStyles} className="team-member">
             <img
               src="https://via.placeholder.com/120"
-              alt="Raj Patel"
+              alt="Mr. Prithviraj Shinde"
               style={teamMemberImageStyles}
             />
-            <h3 style={teamMemberNameStyles}>Raj Patel</h3>
-            <p style={teamMemberRoleStyles}>Lead Developer</p>
+            <h3 style={teamMemberNameStyles}>Mr. Prithviraj Shinde</h3>
+            <p style={teamMemberRoleStyles}>Project Guide</p>
           </div>
         </div>
       </div>

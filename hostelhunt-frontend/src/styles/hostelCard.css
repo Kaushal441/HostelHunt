@@ -19,6 +19,22 @@
   transform: scale(1.05);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
+.book-button {
+  background-color: #809e5f;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.book-button:hover {
+  background-color: #72797c;
+}
+
 
 .hostel-card-img {
   width: 100%;
@@ -59,7 +75,7 @@
 .hostel-card-info p {
   margin: 8px 0;
   color: #555;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
 }
 
 .hostel-card-info strong {
@@ -70,4 +86,17 @@
 .hostel-card-info p:hover {
   color: #6c63ff;
   transition: color 0.3s ease;
+}
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-button:hover {
+  background-color: darkred;
 }

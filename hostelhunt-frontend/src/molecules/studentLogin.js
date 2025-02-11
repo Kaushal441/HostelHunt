@@ -6,8 +6,10 @@ const StudentLogin = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
+    
     console.log("Student Login - Name: ", name);
     console.log("Student Login - Password: ", password);
+    
   };
 
   return (

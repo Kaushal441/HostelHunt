@@ -3,7 +3,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { signupUser } from "../reduxSlices/signupSlice";
+import { signupUser } from "../reduxSlices/signupSlice"; // Student API
+import { signupOwner } from "../reduxSlices/ownerSignupSlice"; // Owner API
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,10 @@ const RegisterPage = () => {
     email: "",
     username: "",
     password: "",
+    contactInfo: "", // Only required for owners
   });
+
+  const [userType, setUserType] = useState("student"); // Default: Student
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,133 +31,129 @@ const RegisterPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(signupUser(formData))
-      .unwrap()
-      .then(() => {
-        toast.success("Registration Successful!");
-        setFormData({
-          name: "",
-          email: "",
-          username: "",
-          password: "",
+    if (userType === "student") {
+      dispatch(signupUser(formData))
+        .unwrap()
+        .then(() => {
+          toast.success("Student Registration Successful!");
+          setFormData({
+            name: "",
+            email: "",
+            username: "",
+            password: "",
+          });
+          navigate("/");
+        })
+        .catch((error) => {
+          toast.error(error || "Something went wrong");
         });
-        navigate("/"); // Redirect to homepage after successful registration
-      })
-      .catch((error) => {
-        toast.error(error || "Something went wrong");
-      });
-  };
-
-  const registerPageStyles = {
-    padding: "40px 20px",
-    backgroundColor: "#f8f9fa",
-    fontFamily: "'Roboto', sans-serif",
-    minHeight: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
-
-  const formContainerStyles = {
-    maxWidth: "600px",
-    width: "100%",
-    backgroundColor: "#fff",
-    borderRadius: "8px",
-    padding: "40px",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-    transition: "transform 0.3s ease-out",
-    animation: "fadeIn 0.8s ease-out",
-  };
-
-  const inputFieldStyles = {
-    width: "100%",
-    padding: "12px",
-    marginBottom: "20px",
-    border: "1px solid #ddd",
-    borderRadius: "8px",
-    fontSize: "1rem",
-    color: "#333",
-    transition: "border-color 0.3s, box-shadow 0.3s",
-  };
-
-  const submitButtonStyles = {
-    padding: "12px 30px",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    fontSize: "1rem",
-    cursor: "pointer",
-    transition: "background-color 0.3s, transform 0.3s",
-  };
-
-  const submitButtonHoverStyles = {
-    backgroundColor: "#0056b3",
-    transform: "scale(1.05)",
-  };
-
-  const sectionTitleStyles = {
-    textAlign: "center",
-    marginBottom: "40px",
-    fontSize: "2.5rem",
-    color: "#333",
+    } else {
+      dispatch(signupOwner(formData))
+        .unwrap()
+        .then(() => {
+          toast.success("Hostel Owner Registration Successful!");
+          setFormData({
+            name: "",
+            username: "",
+            password: "",
+            contactInfo: "",
+          });
+          navigate("/");
+        })
+        .catch((error) => {
+          toast.error(error || "Something went wrong");
+        });
+    }
   };
 
   return (
     <>
+    
       <ToastContainer />
-      <div style={registerPageStyles}>
-        <div style={formContainerStyles}>
-          <h1 style={sectionTitleStyles}>Create Your Account</h1>
+      <div style={styles.registerPage}>
+        <div style={styles.formContainer}>
+          <h1 style={styles.sectionTitle}>Create Your Account</h1>
+
+          {/* Radio Buttons */}
+          <div style={styles.radioGroup}>
+            <label>
+              <input
+                type="radio"
+                name="userType"
+                value="student"
+                checked={userType === "student"}
+                onChange={() => setUserType("student")}
+              />{" "}
+              Student
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="userType"
+                value="owner"
+                checked={userType === "owner"}
+                onChange={() => setUserType("owner")}
+              />{" "}
+              Hostel Owner
+            </label>
+          </div>
+
           <form onSubmit={handleSubmit}>
-            {/* Name Field */}
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              style={inputFieldStyles}
+              style={styles.inputField}
               required
             />
-
-            {/* Email Field */}
-            <input
+             {userType !== "owner" && (
+              <input
               type="email"
               name="email"
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
-              style={inputFieldStyles}
+              style={styles.inputField}
               required
             />
-
-            {/* Username Field */}
+            )}
             <input
               type="text"
               name="username"
               placeholder="Your Username"
               value={formData.username}
               onChange={handleChange}
-              style={inputFieldStyles}
+              style={styles.inputField}
               required
             />
-
-            {/* Password Field */}
             <input
               type="password"
               name="password"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              style={inputFieldStyles}
+              style={styles.inputField}
               required
             />
 
-            {/* Submit Button */}
+            {/* Contact Info (only for hostel owners) */}
+            {userType === "owner" && (
+              <input
+                type="text"
+                name="contactInfo"
+                placeholder="Contact Info"
+                value={formData.contactInfo}
+                onChange={handleChange}
+                style={styles.inputField}
+                required
+              />
+            )}
+
             <button
               type="submit"
-              style={submitButtonStyles}
+              style={styles.submitButton}
               onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
               onMouseOut={(e) => (e.target.style.backgroundColor = "#007bff")}
             >
@@ -162,8 +162,63 @@ const RegisterPage = () => {
           </form>
         </div>
       </div>
+      
     </>
   );
+};
+
+// CSS-in-JS Styles
+const styles = {
+  registerPage: {
+    padding: "40px 20px",
+    backgroundColor: "#f8f9fa",
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundImage: "url(../Images/hostel.jpeg)", 
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  },
+  formContainer: {
+    maxWidth: "600px",
+    width: "100%",
+    backgroundColor: "#fff",
+    borderRadius: "8px",
+    padding: "40px",
+    boxShadow: "0 4px 12px rgba(254, 254, 254, 0.1)",
+    
+  },
+  radioGroup: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "20px",
+    marginBottom: "20px",
+  },
+  inputField: {
+    width: "100%",
+    padding: "12px",
+    marginBottom: "20px",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+  },
+  submitButton: {
+    width: "100%",
+    padding: "12px",
+    backgroundColor: "#007bff",
+    color: "#fff",
+    border: "none",
+    borderRadius: "5px",
+    fontSize: "1rem",
+    cursor: "pointer",
+  },
+  sectionTitle: {
+    textAlign: "center",
+    marginBottom: "40px",
+    fontSize: "2.5rem",
+    color: "#333",
+  },
 };
 
 export default RegisterPage;
