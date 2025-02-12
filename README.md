@@ -1,21 +1,23 @@
-# 🏠 Hostel Finder - Spring Boot & React Application
+# 🏠 Hostel Hunt - Spring Boot & React Application
 
 ## 📌 Project Overview
-Hostel Finder is a full-stack web application built using **Spring Boot (Java) for the backend** and **React.js for the frontend**. It allows **students** to browse and book hostels, **hostel owners** to manage their listings, and **admins** to oversee the platform.
+Hostel Hunt is a full-stack web application built using **Spring Boot (Java) for the backend** and **React.js for the frontend**. It allows **students** to browse and book hostels, **hostel owners** to manage their listings, and **admins** to oversee the platform.
+
+The application also supports **online payments using Razorpay** for seamless hostel booking.
 
 ---
 
 ## 🚀 Features
 ### ✅ **User Roles & Authentication**
 - **Admin**: Manages users, hostels, and reviews.
-- **Student**: Registers, logs in, browses hostels, and writes reviews.
+- **Student**: Registers, logs in, browses hostels, writes reviews, and makes payments.
 - **Hostel Owner**: Manages hostels and updates listings.
 
 ### ✅ **Core Functionalities**
 - **User Registration & Login** (Admin, Student, Hostel Owner)
 - **Hostel Listings** (View, Add, Update, Delete)
 - **Reviews & Ratings** for hostels
-- **Payments** for hostel bookings
+- **Secure Payments using Razorpay**
 - **RESTful API with Spring Boot**
 - **React Frontend with Axios Integration**
 
@@ -27,6 +29,7 @@ Hostel Finder is a full-stack web application built using **Spring Boot (Java) f
 - Hibernate (JPA) for database interaction
 - MySQL for data storage
 - REST API with JWT Authentication (optional)
+- Razorpay Integration for Payments
 - Swagger API Documentation
 
 ### **Frontend (React.js)**
@@ -41,5 +44,5 @@ Hostel Finder is a full-stack web application built using **Spring Boot (Java) f
 ### 🔹 **Backend (Spring Boot)**
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/hostel-finder.git
-   cd hostel-finder/backend
+   git clone https://github.com/your-username/HostelHunt.git
+   cd HostelHunt/HostelHunt-Backend
