@@ -63,7 +63,7 @@ The application also supports **online payments using Razorpay** for seamless ho
 5. Open Swagger API Docs:
    http://localhost:8080/swagger-ui/
 
-###🔹 **Frontend (React)**
+### 🔹 **Frontend (React)**
 1. Navigate to the frontend directory:
    cd HostelHunt-frontend
    
