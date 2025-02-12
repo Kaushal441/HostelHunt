@@ -61,7 +61,7 @@ The application also supports **online payments using Razorpay** for seamless ho
    mvn spring-boot:run
 
 5. Open Swagger API Docs:
-   http://localhost:8080/swagger-ui/
+   http://localhost:8000/swagger-ui/
 
 ### 🔹 **Frontend (React)**
 1. Navigate to the frontend directory:
