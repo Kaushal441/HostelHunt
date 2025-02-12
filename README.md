@@ -90,9 +90,8 @@ POST	   /api/payments	    Make a payment
 🎯 To-Do & Future Improvements:
 ✅ Add search & filter options for hostels
 ✅ Improve UI with Material UI / Tailwind CSS
-✅ Implement Razorpay for secure transactions
 🔜 Implement Google OAuth login
-🔜 Add admin dashboard with analytics
+🔜 Improve admin dashboard with analytics
 
 🤝 Contributing:
 Feel free to contribute by submitting a pull request or reporting issues.
